@@ -10,7 +10,7 @@ pip install -r requirements.txt
 
 ## Configuration file
 
-Edit the `config.txt` with your API key
+Create the `config.txt` file or edit the existent one
 ```
 [configuration]
 URL = [url of the API]
