@@ -13,7 +13,8 @@ pip install -r requirements.txt
 Edit the `config.txt` with your API key
 ```
 [configuration]
-API = [virus total api key]
+URL = [url of the API]
+token = [session token]
 ```
 Without square brackets, replace every `%` with `%%`
 
