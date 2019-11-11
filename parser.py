@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import clipboard
 import jsoner
 import parameters
 import configuration
@@ -17,10 +18,15 @@ def main():
 
     info = jsoner.get_json(url, token, ticket)
 
-    jsoner.scrape(info, "victims", "emailaddress")
-    jsoner.scrape(info, "attackers", "emailaddress")
-    jsoner.scrape(info, "context", "emailsubject")
-    jsoner.scrape(info, "context", "file", "filename")
+    result = ""
+    result += jsoner.scrape(info, "victims", "emailaddress")
+    result += jsoner.scrape(info, "attackers", "emailaddress")
+    result += jsoner.scrape(info, "context", "emailsubject")
+    result += jsoner.scrape(info, "context", "file", "filename")
+    result = result[:-1]
+
+    clipboard.copy(result)
+    print(result)
 
 
 if __name__ == "__main__":
