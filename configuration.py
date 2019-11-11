@@ -8,5 +8,5 @@ def get_config():
     config.read("config.txt")
     url = config.get("configuration", "URL")
     token = config.get("configuration", "token")
-    config = {'url': url, 'token': token}
-    return (config)
+    conf = {'url': url, 'token': token}
+    return (conf)
