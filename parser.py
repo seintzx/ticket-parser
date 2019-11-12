@@ -18,11 +18,13 @@ def main():
 
     info = jsoner.get_json(url, token, ticket)
 
+    lkind = ["emailaddress", "emailsubject", "file", "host"]
+
     result = ""
-    result += jsoner.scrape(info, "victims", "emailaddress")
-    result += jsoner.scrape(info, "attackers", "emailaddress")
-    result += jsoner.scrape(info, "context", "emailsubject")
-    result += jsoner.scrape(info, "context", "file", "filename")
+    result += jsoner.scrape(info, "victims", lkind)
+    result += jsoner.scrape(info, "attackers", lkind)
+    result += jsoner.scrape(info, "context", lkind)
+    result += jsoner.scrape(info, "context", lkind, "filename")
     result = result[:-1]
 
     clipboard.copy(result)

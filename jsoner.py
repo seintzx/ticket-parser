@@ -14,19 +14,20 @@ def get_json(url, token, ticket):
     return (response.json())
 
 
-def scrape(lis, where, what, deep=None):
+def scrape(lis, where, lwhat, deep=None):
     foobar = []
     name = "null"
     for foo in lis:
         if foo["_id"] == where:
             for bar in foo["value"]:
-                if bar["kind"] == what:
-                    if deep is None:
-                        name = where
-                        foobar.append(bar["name"])
-                    else:
-                        name = deep
-                        foobar.append(bar["details"][deep])
+                for what in lwhat:
+                    if bar["kind"] == what:
+                        if deep is None:
+                            name = where
+                            foobar.append(bar["name"])
+                        else:
+                            name = deep
+                            foobar.append(bar["details"][deep])
 
     result = ""
     result += "- **{0}**\n".format(name)
