@@ -13,4 +13,9 @@ def param():
                         action="store",
                         required=True)
 
+    parser.add_argument("-e",
+                        "--eng",
+                        action="store_true",
+                        help="English version")
+
     return (parser.parse_args())

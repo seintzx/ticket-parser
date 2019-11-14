@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
 import clipboard
+import configuration
 import jsoner
 import parameters
-import configuration
+import templater
 
 
 def main():
@@ -27,8 +28,13 @@ def main():
     result += jsoner.scrape(info, "context", ["file"], "filename")
     result = result[:-1]
 
-    clipboard.copy(result)
-    print(result)
+    if args.eng:
+        body = templater.get_template('email-eng.md').format(result)[:-1]
+    else:
+        body = templater.get_template('email-ita.md').format(result)[:-1]
+
+    clipboard.copy(body)
+    print(body)
 
 
 if __name__ == "__main__":
