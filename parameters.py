@@ -16,6 +16,6 @@ def param():
     parser.add_argument("-e",
                         "--eng",
                         action="store_true",
-                        help="English version")
+                        help="english version")
 
     return (parser.parse_args())
