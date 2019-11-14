@@ -21,7 +21,7 @@ Without square brackets, replace every `%` with `%%`
 # Usage
 
 ```
-usage: parser.py [-h] -t TICKET
+usage: parser.py [-h] -t TICKET [-e]
 
 Ticket parser to gather involved info
 
@@ -29,6 +29,7 @@ optional arguments:
   -h, --help            show this help message and exit
   -t TICKET, --ticket TICKET
                         set the ticket ID
+  -e, --eng             english version
 ```
 If you want to copy results to clipboard
 ```
