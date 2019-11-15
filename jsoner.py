@@ -29,10 +29,11 @@ def scrape(lis, where, lwhat, deep=None):
                             name = deep
                             foobar.append(bar["details"][deep])
 
-    result = ""
-    result += "- **{0}**\n".format(name)
-    result += "\t```\n".expandtabs(4)
-    for foo in sorted(foobar):
-        result += "\t".expandtabs(4) + foo + "\n"
-    result += "\t```\n".expandtabs(4)
+    if name is not "null":
+        result = ""
+        result += "- **{0}**\n".format(name)
+        result += "\t```\n".expandtabs(4)
+        for foo in sorted(foobar):
+            result += "\t".expandtabs(4) + foo + "\n"
+        result += "\t```\n".expandtabs(4)
     return (result)
