@@ -16,7 +16,7 @@ def get_json(url, token, ticket):
 
 def scrape(lis, where, lwhat, deep=None):
     foobar = []
-    name = "null"
+    name = None
     for foo in lis:
         if foo["_id"] == where:
             for bar in foo["value"]:
@@ -29,7 +29,7 @@ def scrape(lis, where, lwhat, deep=None):
                             name = deep
                             foobar.append(bar["details"][deep])
 
-    if name is not "null":
+    if name is not None:
         result = ""
         result += "- **{0}**\n".format(name)
         result += "\t```\n".expandtabs(4)
