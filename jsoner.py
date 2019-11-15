@@ -23,7 +23,7 @@ def scrape(lis, where, lwhat, deep=None):
                 for what in lwhat:
                     if bar["kind"] == what:
                         if deep is None:
-                            name = where
+                            name = what if where is "context" else where
                             foobar.append(bar["name"])
                         else:
                             name = deep
